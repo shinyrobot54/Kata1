@@ -15,14 +15,15 @@ class kata {
         this.people = [];
         this.continueResponse = null;
         this.counter = 0;
-        process.stdout.write('\x1Bc'); //Clears the screen
+        // process.stdout.write('\x1Bc'); //Clears the screen
         this.setContinueResponse();
         while (this.continueResponse === 1) {
             this.populatePeople();
             this.setContinueResponse();
             this.counter++;
-            this.printPeople();
         }
+        this.printPeople();
+
     }
 
     setContinueResponse() {
@@ -52,16 +53,16 @@ class kata {
             'firstName': first,
             'lastName': last,
             'dateOfBirth': yob,
-            'yearAlive': Number(CURRENTYEAR - yob)
+            'yearsAlive': Number(CURRENTYEAR - yob)
         };
     }
 
     printPeople() {
-        for (let i = 0; i < people.length; i++) {
-            console.log('${people[i].firstName ${people[i].lastName}');
-            console.log(`${critters[i].species}, Name = ${critters[i].name}`);
+        for (let i = 0; i < this.people.length; i++) {
+            console.log('----------------------------------------------------------');
+            console.log(`${this.people[i].firstName} ${this.people[i].lastName}\n Date Of Birth = ${this.people[i].dateOfBirth}\n Years Alive = ${this.people[i].yearsAlive}`);
         }
-
+        console.log('----------------------------------------------------------');
     }
 }
 
